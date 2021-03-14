@@ -1,47 +1,80 @@
-
+let tel = [{
+        mamory: 64,
+        peice: 699,
+    },
+    {
+        mamory: 128,
+        peice: 899,
+    },
+    {
+        mamory: 512,
+        peice: 999,
+    },
+];
+let colors = [{
+        color: "black",
+        way: "img/black1.png",
+        peice: 0,
+    },
+    {
+        color: "gold",
+        way: "img/gold.png",
+        peice: 150,
+    },
+    {
+        color: "silver",
+        way: "img/silver.png",
+        peice: 100,
+    },
+];
 
 let price;
 let colorWay;
-console.log("dddd")
-chec:while(true){
+let corolPrice;
+chec: while (true) {
     let memory = prompt("Введіть об'єм пам'яті");
-    switch(+memory){
-        case 64: price=645;
-        break chec;
+    if (memory === null) {
         break;
-        case 128: price=800;
-        break chec;
-        break;
-        case 512: price=999;
-        break chec;
-        break;
-        default:alert("Введите допустимое значение");break;
+    }
+    for (let i = 0; i < tel.length; i++) {
+
+        if (+memory === tel[i].mamory) {
+            price = tel[i].peice;
+
+            break chec;
+            break;
+
+        }
+
+    }
+
+}
+if (price) {
+    chec: while (true) {
+        let colorChec = prompt("Введіть Колір");
+        if (colorChec === null) {
+            break;
+        }
+        for (let i = 0; i < colors.length; i++) {
+            if (colorChec === colors[i].color) {
+                colorWay = colors[i].way;
+                corolPrice=colors[i].peice;
+                break chec;
+                break;
+
+            }
+
+        }
+
     }
 }
-chec:while(true){
-    let color = prompt("Введіть Колір");
-    switch(color){
-        case "black":colorWay="img/black1.png";
-        break chec;
-        break;
-        case "gold":colorWay="img/gold.png";
-        break chec;
-        break;
-        break;
-        case "silver":colorWay="img/silver.png";
-        break chec;
-        break;
-        break;
-        default:alert("Введите допустимое значение");break;
-    }
+if (price && colorWay) {
+    price+=corolPrice;
+    document.write("<h1>Price: " + price + "$</h1>");
+    document.write('<img src="' + colorWay + '">');
+} else if (price) {
+    price+=corolPrice;
+    document.write("<h1>Price: " + price + "$</h1>");
+} else{
+    alert("Пока");
 }
-
-
-if(price!=null && colorWay!=null){
-    document.getElementById("MyImage").src=colorWay;
-    alert("Цена - " + price);
-}
-    
-
-
-
