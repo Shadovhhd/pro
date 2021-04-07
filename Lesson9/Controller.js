@@ -16,7 +16,7 @@ class TodosController {
     listen() {
         this.view.listenAdding(this.addTodo.bind(this));
         this.view.listenRemoving(this.removeTodo.bind(this));
-        this.view.listenCompleted(this.checkComleted(this));
+        this.view.listenCompleted(this.checkComleted.bind(this));
     }
 
     render(todos) {

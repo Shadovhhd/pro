@@ -6,7 +6,7 @@ class TodosView {
         this.fieldElement = this.formElement.querySelector(".todos-form__field");
         this.listElement = this.host.querySelector(".todos-list");
         this.removeBtnSelector = ".todo__remove";
-        this.changeStatus ="todo__change-status";
+        this.changeStatus =".todo__change-status";
     }
 
     clearInput() {
@@ -36,7 +36,7 @@ class TodosView {
         });
        
     }
-    listenCompleted(cd){
+    listenCompleted(cb){
         this.listElement.addEventListener("click", (event) => {
             const target = event.target;
             if (target.matches(this.changeStatus)) {

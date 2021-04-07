@@ -17,30 +17,27 @@ class TodosModel {
 
     addTodo(title, cb) {
         const newTodo = {
-            
+
             title,
             done: false,
         };
-        
-        axios.post('https://jsonplaceholder.typicode.com/todos').then((res) =>{
-            this.todos = [newTodo, ...this.todos];
-            res.data=this.todos;
+        this.todos = [newTodo, ...this.todos];
+        axios.post(`${this.apiUrl}/todos`, this.todos).then((res) => {
+            console.log(res);
             cb(this.todos);
-      
         });
-        
     }
 
     removeTodo(id, cb) {
         this.todos = this.todos.filter((todo) => todo.id !== id);
         cb(this.todos);
     }
-    switchCompleted(id, cd){
-      this.todos.forEach(element => {
-          if(element.id===id){
-              element.id = !element.id;
-          }
-          cb(this.todos);
-      }); 
+    switchCompleted(id, cb) {
+        this.todos.forEach(element => {
+            if (element.id === id) {
+                element.completed = !element.completed;
+            }
+            cb(this.todos);
+        });
     }
 }
