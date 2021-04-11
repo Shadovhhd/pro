@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson10</title>
+  </head>
+  <body>
+    <div class="todos" id="todosComponent">
+      <form class="todos-form">
+        <input type="text" class="todos-form__field" />
+        <button type="submit" class="todos-form__btn btn">Add todo</button>
+      </form>
+      <div class="todos-filter">
+        <label class="todos-filter__item">
+          All
+          <input
+            type="radio"
+            name="completedFilter"
+            value="all"
+            class="todos-filter__radio default"
+          />
+        </label>
+        <label class="todos-filter__item">
+          Completed
+          <input
+            type="radio"
+            name="completedFilter"
+            value="completed"
+            class="todos-filter__radio "
+          />
+        </label>
+        <label class="todos-filter__item">
+          To Do
+          <input
+            type="radio"
+            name="completedFilter"
+            value="toDo"
+            class="todos-filter__radio"
+          />
+        </label>
+      </div>
+      <ul class="todos-list"></ul>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
+
